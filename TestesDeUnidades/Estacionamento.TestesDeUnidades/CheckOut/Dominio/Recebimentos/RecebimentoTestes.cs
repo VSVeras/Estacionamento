@@ -126,7 +126,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             var cobrancaPorHora = new CobrancaPorDiaria();
             recebimento.CobrancaPorPermanencia(cobrancaPorHora);
             var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, valorDaTransacao);
-            var transacaoEmCartaDeDebito = new TransacaoFinanceira(FormaDePagamento.CartaDeDebito, valorDaTransacao);
+            var transacaoEmCartaDeDebito = new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, valorDaTransacao);
             recebimento.Registrar(transacaoEmDinheiro);
 
             recebimento.Registrar(transacaoEmCartaDeDebito);
@@ -134,7 +134,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             var valorDaTransacaoEsperado = valorDaTransacao * 2;
             var transacoesFinanceirasEsperada = new TransacoesFinanceiras();
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, valorDaTransacao));
-            transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.CartaDeDebito, valorDaTransacao));
+            transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, valorDaTransacao));
             Assert.Equal(transacoesFinanceirasEsperada.Todas(), recebimento.TransacoesFinanceiras);
             Assert.True(recebimento.TotalDasTransacoesFinanceiras() == valorDaTransacaoEsperado);
         }
