@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Nucleo.Compartilhado.Comum.Dominio;
+using System.Collections.Generic;
 
 namespace CheckOut.Dominio.Recebimentos
 {
-    public class Recebimento
+    public class Recebimento : Entidade
     {
-        public int Id { get; private set; }
         public Ticket Ticket { get; private set; }
         private readonly TransacoesFinanceiras _transacoesFinanceiras;
   
