@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Área Compartilhada", "Áre
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleo.Compartilhado", "NucleoCompartilhado\Nucleo.Compartilhado\Nucleo.Compartilhado.csproj", "{FDB0FDFC-A642-40FC-99B7-941D68D926E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nucleo.Compartilhado.Comum", "NucleoCompartilhadoComum\Nucleo.Compartilhado.Comum\Nucleo.Compartilhado.Comum.csproj", "{FA244AF1-B8F6-4E48-BAF7-0046964BC23A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleo.Compartilhado.Comum", "NucleoCompartilhadoComum\Nucleo.Compartilhado.Comum\Nucleo.Compartilhado.Comum.csproj", "{FA244AF1-B8F6-4E48-BAF7-0046964BC23A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

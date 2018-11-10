@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Nucleo.Compartilhado.Comum.Dominio
 {
+    // Proximo passo identificar os agregados e entidades, lembrar deste:
+
+    // Some objects are not defined primarily by their attributes. 
+    // They represent a thread of identity that runs through time and often across distinct representations.
+    // An object defined primarily by its identity is called an ENTITY” (Evans, 91)
+
     public abstract class Entidade : IEquatable<Entidade>
     {
         public virtual int Id { get; protected set; }
