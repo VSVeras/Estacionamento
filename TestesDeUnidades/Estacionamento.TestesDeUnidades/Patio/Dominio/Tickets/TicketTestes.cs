@@ -1,6 +1,6 @@
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas;
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Infraestrutura.SistemaOperacional;
-using Nucleo.Compartilhado.Comum.Dominio;
+using Nucleo.Compartilhado.Dominio;
 using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
 using Patio.Dominio.Condutores;
 using Patio.Dominio.Tickets;

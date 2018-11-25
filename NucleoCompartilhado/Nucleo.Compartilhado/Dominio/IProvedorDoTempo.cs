@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Nucleo.Compartilhado.Comum.Dominio
+namespace Nucleo.Compartilhado.Dominio
 {
     public interface IProvedorDoTempo
     {

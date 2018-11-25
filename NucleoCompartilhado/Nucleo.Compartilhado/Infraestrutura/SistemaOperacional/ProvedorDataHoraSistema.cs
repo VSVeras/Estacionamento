@@ -1,4 +1,4 @@
-﻿using Nucleo.Compartilhado.Comum.Dominio;
+﻿using Nucleo.Compartilhado.Dominio;
 using System;
 
 namespace Nucleo.Compartilhado.Infraestrutura.SistemaOperacional

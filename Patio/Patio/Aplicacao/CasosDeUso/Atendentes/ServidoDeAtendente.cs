@@ -1,4 +1,5 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
+using Nucleo.Compartilhado.Dominio;
 using Patio.Aplicacao.CasoDeUso;
 using Patio.Aplicacao.Repositorios;
 using Patio.Dominio.Atendentes;

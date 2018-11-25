@@ -1,4 +1,4 @@
-﻿using Nucleo.Compartilhado.Comum.Dominio;
+﻿using Nucleo.Compartilhado.Dominio;
 using Patio.Dominio.Condutores;
 using Patio.Dominio.Tickets;
 

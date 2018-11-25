@@ -1,4 +1,4 @@
-﻿using Nucleo.Compartilhado.Comum.Dominio;
+﻿using Nucleo.Compartilhado.Dominio;
 using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
 using Patio.Dominio.Atendentes;
 using Patio.Dominio.Condutores;
