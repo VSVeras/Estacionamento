@@ -1,6 +1,6 @@
 ﻿namespace CheckOut.Dominio.Recebimentos
 {
-    public class CobrancaPorHora : IRegraDeCobranca
+    public sealed class CobrancaPorHora : IRegraDeCobranca
     {
         private readonly int _minutosEmUmaHora = 60;
         private readonly decimal _valorHora = 12.00m;

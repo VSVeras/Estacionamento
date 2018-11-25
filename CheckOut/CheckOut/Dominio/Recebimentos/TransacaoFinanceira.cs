@@ -2,7 +2,7 @@
 
 namespace CheckOut.Dominio.Recebimentos
 {
-    public class TransacaoFinanceira : ObjetoDeValor<TransacaoFinanceira>
+    public sealed class TransacaoFinanceira : ObjetoDeValor<TransacaoFinanceira>
     {
         public FormaDePagamento FormaDePagamento { get; }
         public decimal ValorRecebido { get; }

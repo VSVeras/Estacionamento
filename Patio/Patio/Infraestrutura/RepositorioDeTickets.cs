@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Patio.Infraestrutura
 {
-    public class RepositorioDeTickets : IRepositorioDeEscritaTickets, IRepositorioDeLeituraTickets
+    public sealed class RepositorioDeTickets : IRepositorioDeEscritaTickets, IRepositorioDeLeituraTickets
     {
         public RepositorioDeTickets()
         {

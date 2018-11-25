@@ -3,7 +3,7 @@ using System;
 
 namespace Nucleo.Compartilhado.Dominio
 {
-    public class Bilhete : ObjetoDeValor<Bilhete>
+    public sealed class Bilhete : ObjetoDeValor<Bilhete>
     {
         public int TicketId { get; }
         public Veiculo Veiculo { get; }

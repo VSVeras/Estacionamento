@@ -1,10 +1,9 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
-using Nucleo.Compartilhado.Dominio;
 using System;
 
 namespace CheckOut.Dominio.Recebimentos
 {
-    public class Periodo : ObjetoDeValor<Periodo>
+    public sealed class Periodo : ObjetoDeValor<Periodo>
     { 
         public DateTime Entrada { get; }
         public DateTime Saida { get; }

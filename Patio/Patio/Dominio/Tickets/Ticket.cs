@@ -4,7 +4,7 @@ using System;
 
 namespace Patio.Dominio.Tickets
 {
-    public class Ticket : Entidade
+    public sealed class Ticket : Entidade
     {
         public Veiculo Veiculo { get; private set; }
         public DateTime DataHoraDeEntrada { get; private set; }

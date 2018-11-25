@@ -2,7 +2,7 @@
 
 namespace Patio.Dominio.Condutores
 {
-    public class Condutor : IServicoDeEstacionamento
+    public sealed class Condutor : IServicoDeEstacionamento
     {
         public Veiculo Estacionar(string placa)
         {

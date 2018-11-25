@@ -4,7 +4,7 @@ using Patio.Aplicacao.Repositorios;
 namespace Patio.Aplicacao.CasosDeUso.Condutores
 {
     // Serviço destinado para uso do contexto do checkout
-    public class ServicoDeCondutor : IServicoDeCondutor
+    public sealed class ServicoDeCondutor : IServicoDeCondutor
     {
         private readonly IRepositorioDeLeituraTickets _repositorioDeLeituraTickets;
 

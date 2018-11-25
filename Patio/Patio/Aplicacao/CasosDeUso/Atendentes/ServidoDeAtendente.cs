@@ -6,7 +6,7 @@ using Patio.Dominio.Condutores;
 
 namespace Patio.Aplicacao.Atendentes
 {
-    public class ServidoDeAtendente : IServidoDeAtendente
+    public sealed class ServidoDeAtendente : IServidoDeAtendente
     {
         private readonly IRepositorioDeLeituraTickets _repositorioDeLeituraTickets;
         private readonly IRepositorioDeEscritaTickets _repositorioDeEscritaTickets;

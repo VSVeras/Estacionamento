@@ -2,10 +2,12 @@
 
 namespace CheckOut.Dominio.Recebimentos
 {
-    // Em JAVA enum é uma classe já em C# não, será necessário implementar para dar maior legibilidade 
+    // Em JAVA enum é uma classe já em C# não, será necessário implementação para dar maior legibilidade 
     // e evitar a obsessão por tipos primitivos
-    // Exemplo : https://stackoverflow.com/questions/469287/c-sharp-vs-java-enum-for-those-new-to-c/4778347
-    public class FormaDePagamento
+    // Exemplos: 
+    // https://refactoring.guru/smells/primitive-obsession
+    // https://stackoverflow.com/questions/469287/c-sharp-vs-java-enum-for-those-new-to-c/4778347
+    public sealed class FormaDePagamento
     {
         public int Id { get; }
         public string Descricao { get; }

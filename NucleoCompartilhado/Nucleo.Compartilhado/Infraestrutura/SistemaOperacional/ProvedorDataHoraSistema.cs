@@ -3,7 +3,7 @@ using System;
 
 namespace Nucleo.Compartilhado.Infraestrutura.SistemaOperacional
 {
-    public class ProvedorDataHoraSistema : IProvedorDoTempo
+    public sealed class ProvedorDataHoraSistema : IProvedorDoTempo
     {
         public DateTime DataHora { get { return DateTime.UtcNow; } }
     }

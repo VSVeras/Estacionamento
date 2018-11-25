@@ -4,7 +4,7 @@ using Patio.Dominio.Tickets;
 
 namespace Patio.Dominio.Atendentes
 {
-    public class Atendente
+    public sealed class Atendente
     {
         public static class Registrar
         {

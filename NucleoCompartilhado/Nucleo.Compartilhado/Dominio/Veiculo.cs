@@ -2,7 +2,7 @@
 
 namespace Nucleo.Compartilhado.Dominio
 {
-    public class Veiculo : ObjetoDeValor<Veiculo>
+    public sealed class Veiculo : ObjetoDeValor<Veiculo>
     {
         public string Placa { get; }
 

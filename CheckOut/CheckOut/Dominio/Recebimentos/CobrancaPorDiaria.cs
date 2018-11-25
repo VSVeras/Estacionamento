@@ -2,7 +2,7 @@
 
 namespace CheckOut.Dominio.Recebimentos
 {
-    public class CobrancaPorDiaria : IRegraDeCobranca
+    public sealed class CobrancaPorDiaria : IRegraDeCobranca
     {
         private readonly decimal _valorDaDiaria = 22.00m;
 

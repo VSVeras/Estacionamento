@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CheckOut.Dominio.Recebimentos
 {
-    public class Recebimento : Entidade
+    public sealed class Recebimento : Entidade
     {
         public Ticket Ticket { get; private set; }
         private readonly TransacoesFinanceiras _transacoesFinanceiras;
