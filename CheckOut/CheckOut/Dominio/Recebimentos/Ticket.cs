@@ -3,8 +3,8 @@ using System;
 
 namespace CheckOut.Dominio.Recebimentos
 {
-    // Mantido o nome de ticket ao invés de identificação
-    // Bilhete é o que o cliente leva impresso com os dados do ticket.
+    // Mantido o nome de ticket ao invés de identificação, o bilhete 
+    // é o que o cliente leva impresso com os dados do ticket.
     public sealed class Ticket
     {
         public int Id { get; private set; }

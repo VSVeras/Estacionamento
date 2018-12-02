@@ -2,7 +2,7 @@
 
 namespace Patio.Aplicacao.Atendentes
 {
-    public interface IServidoDeAtendente
+    public interface IServidoDeAtendimento
     {
         void Registrar(EntradaDeUmVeiculo registroDeEntradaDeUmVeiculo);
         ObterUltimoTicket EmissaoDeTicket();

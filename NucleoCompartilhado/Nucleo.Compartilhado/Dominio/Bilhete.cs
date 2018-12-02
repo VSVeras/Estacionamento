@@ -3,6 +3,7 @@ using System;
 
 namespace Nucleo.Compartilhado.Dominio
 {
+    // Não exige tradução com uma ACL, os dados são simples e podem ser compartilhado
     public sealed class Bilhete : ObjetoDeValor<Bilhete>
     {
         public int TicketId { get; }

@@ -7,15 +7,15 @@ using Patio.Dominio.Condutores;
 
 namespace Patio.Aplicacao.Atendentes
 {
-    public sealed class ServidoDeAtendente : IServidoDeAtendente
+    public sealed class ServidoDeAtendimento : IServidoDeAtendimento
     {
         private readonly IRepositorioDeLeituraTickets _repositorioDeLeituraTickets;
         private readonly IRepositorioDeEscritaTickets _repositorioDeEscritaTickets;
         private readonly IProvedorDoTempo _provedorDoTempo;
         private readonly IServicoDeEstacionamento _servicoDeEstacionamento;
 
-        public ServidoDeAtendente(IRepositorioDeLeituraTickets repositorioDeLeituraTickets, IRepositorioDeEscritaTickets repositorioDeEscritaTickets, 
-                                  IProvedorDoTempo provedorDoTempo, IServicoDeEstacionamento servicoDeEstacionamento)
+        public ServidoDeAtendimento(IRepositorioDeLeituraTickets repositorioDeLeituraTickets, IRepositorioDeEscritaTickets repositorioDeEscritaTickets, 
+                                    IProvedorDoTempo provedorDoTempo, IServicoDeEstacionamento servicoDeEstacionamento)
         {
             _repositorioDeLeituraTickets = repositorioDeLeituraTickets;
             _repositorioDeEscritaTickets = repositorioDeEscritaTickets;
