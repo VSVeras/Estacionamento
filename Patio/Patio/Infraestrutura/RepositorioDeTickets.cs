@@ -1,5 +1,4 @@
-﻿using Patio.Aplicacao.Repositorios;
-using Patio.Dominio.Tickets;
+﻿using Patio.Dominio.Tickets;
 using System.Collections.Generic;
 using System.Linq;
 

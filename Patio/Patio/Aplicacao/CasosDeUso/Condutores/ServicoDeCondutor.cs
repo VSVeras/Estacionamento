@@ -1,5 +1,5 @@
 ﻿using Patio.Aplicacao.CasoDeUso;
-using Patio.Aplicacao.Repositorios;
+using Patio.Dominio.Tickets;
 
 namespace Patio.Aplicacao.CasosDeUso.Condutores
 {

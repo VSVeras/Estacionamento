@@ -1,6 +1,4 @@
-﻿using Patio.Dominio.Tickets;
-
-namespace Patio.Aplicacao.Repositorios
+﻿namespace Patio.Dominio.Tickets
 {
     public interface IRepositorioDeEscritaTickets
     {

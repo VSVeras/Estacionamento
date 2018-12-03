@@ -1,9 +1,8 @@
-﻿using Nucleo.Compartilhado.Comum.Dominio;
-using Nucleo.Compartilhado.Dominio;
+﻿using Nucleo.Compartilhado.Dominio;
 using Patio.Aplicacao.CasoDeUso;
-using Patio.Aplicacao.Repositorios;
 using Patio.Dominio.Atendentes;
 using Patio.Dominio.Condutores;
+using Patio.Dominio.Tickets;
 
 namespace Patio.Aplicacao.Atendentes
 {
