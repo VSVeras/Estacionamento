@@ -6,6 +6,7 @@ using Patio.Dominio.Tickets;
 
 namespace Patio.Aplicacao.Atendentes
 {
+    // Serviços de aplicação serve para orquestrar as operações dos casos de uso.
     public sealed class ServidoDeAtendimento : IServidoDeAtendimento
     {
         private readonly IRepositorioDeLeituraTickets _repositorioDeLeituraTickets;
@@ -27,7 +28,6 @@ namespace Patio.Aplicacao.Atendentes
             try
             {
                 var ticket = Atendente.Registrar.Entrada(_provedorDoTempo, _servicoDeEstacionamento, entradaDeUmVeiculo.Placa);
-
                 _repositorioDeEscritaTickets.Salvar(ticket);
             }
             catch

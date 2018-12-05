@@ -26,7 +26,10 @@ namespace Patio.Dominio.Tickets
 
         internal bool Valido()
         {
-            if (Veiculo != null)
+            if (Veiculo == null)
+                return false;
+
+            if (DataHoraDeEntrada == null)
                 return false;
 
             return true;
