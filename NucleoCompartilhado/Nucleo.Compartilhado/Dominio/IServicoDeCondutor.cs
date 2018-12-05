@@ -1,6 +1,4 @@
-﻿using Nucleo.Compartilhado.Dominio;
-
-namespace Patio.Aplicacao.CasosDeUso.Condutores
+﻿namespace Nucleo.Compartilhado.Dominio
 {
     public interface IServicoDeCondutor
     {
