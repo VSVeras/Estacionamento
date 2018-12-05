@@ -1,4 +1,5 @@
 ﻿using Nucleo.Compartilhado.Dominio;
+using Nucleo.Compartilhado.Dominio.Condutores;
 using System;
 
 namespace CheckOut.Dominio.Recebimentos

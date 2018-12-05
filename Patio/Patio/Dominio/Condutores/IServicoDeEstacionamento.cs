@@ -1,4 +1,4 @@
-﻿using Nucleo.Compartilhado.Dominio;
+﻿using Nucleo.Compartilhado.Dominio.Condutores;
 
 namespace Patio.Dominio.Condutores
 {

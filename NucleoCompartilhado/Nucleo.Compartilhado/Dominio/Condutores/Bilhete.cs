@@ -1,7 +1,8 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
 using System;
 
-namespace Nucleo.Compartilhado.Dominio
+// Sobre a organização dos módulos: Eles devem ser o índice das histórias.
+namespace Nucleo.Compartilhado.Dominio.Condutores
 {
     // Não exige tradução com uma ACL, os dados são simples e pode ser compartilhado
     public sealed class Bilhete : ObjetoDeValor<Bilhete>

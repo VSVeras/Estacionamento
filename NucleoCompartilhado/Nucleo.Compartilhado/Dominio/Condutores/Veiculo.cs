@@ -1,6 +1,6 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
 
-namespace Nucleo.Compartilhado.Dominio
+namespace Nucleo.Compartilhado.Dominio.Condutores
 {
     public sealed class Veiculo : ObjetoDeValor<Veiculo>
     {

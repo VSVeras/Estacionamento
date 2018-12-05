@@ -1,9 +1,11 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
 using Nucleo.Compartilhado.Dominio;
+using Nucleo.Compartilhado.Dominio.Condutores;
 using System;
 
 namespace Patio.Dominio.Tickets
 {
+    // A raiz do agregado dever atender a todos os fluxos do caso de uso.
     public sealed class Ticket : Entidade
     {
         public Veiculo Veiculo { get; private set; }

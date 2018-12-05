@@ -1,4 +1,4 @@
-﻿using Nucleo.Compartilhado.Dominio;
+﻿using Nucleo.Compartilhado.Dominio.Condutores;
 using Patio.Dominio.Tickets;
 
 namespace Patio.Aplicacao.CasosDeUso.Condutores

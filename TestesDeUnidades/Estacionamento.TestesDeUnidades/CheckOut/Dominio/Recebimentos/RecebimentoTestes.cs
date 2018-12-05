@@ -1,11 +1,11 @@
 ﻿using System;
 using Xunit;
 using CheckOut.Dominio.Recebimentos;
-using Nucleo.Compartilhado.Comum.Dominio;
 using Nucleo.Compartilhado.Dominio;
 using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas;
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Infraestrutura.SistemaOperacional;
+using Nucleo.Compartilhado.Dominio.Condutores;
 
 namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
 {
