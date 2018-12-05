@@ -1,9 +1,9 @@
-﻿using Patio.Aplicacao.CasoDeUso;
+﻿using Nucleo.Compartilhado.Dominio;
 
 namespace Patio.Aplicacao.CasosDeUso.Condutores
 {
     public interface IServicoDeCondutor
     {
-        ObterTicketEmitido ObterTicketEmitidoPor(int id);
+        Bilhete ObterTicketEmitidoPor(int id);
     }
 }

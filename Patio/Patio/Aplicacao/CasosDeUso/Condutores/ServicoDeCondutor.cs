@@ -1,4 +1,4 @@
-﻿using Patio.Aplicacao.CasoDeUso;
+﻿using Nucleo.Compartilhado.Dominio;
 using Patio.Dominio.Tickets;
 
 namespace Patio.Aplicacao.CasosDeUso.Condutores
@@ -13,12 +13,12 @@ namespace Patio.Aplicacao.CasosDeUso.Condutores
             _repositorioDeLeituraTickets = repositorioDeLeituraTickets;
         }
 
-        public ObterTicketEmitido ObterTicketEmitidoPor(int id)
+        public Bilhete ObterTicketEmitidoPor(int id)
         {
             try
             {
                 var ticket = _repositorioDeLeituraTickets.ObterPor(id);
-                return new ObterTicketEmitido(ticket.Id, ticket.Veiculo.Placa, ticket.DataHoraDeEntrada);
+                return new Bilhete(ticket.Id, ticket.DataHoraDeEntrada, ticket.Veiculo);
             }
             catch
             {
