@@ -6,7 +6,7 @@ using Patio.Dominio.Tickets;
 
 namespace Patio.Aplicacao.Atendentes
 {
-    // Serviços de aplicação serve para orquestrar as operações dos casos de uso.
+    // Serviços de aplicação serve para orquestrar as operações/fluxos dos casos de uso.
     public sealed class ServidoDeAtendimento : IServidoDeAtendimento
     {
         private readonly IRepositorioDeLeituraTickets _repositorioDeLeituraTickets;
