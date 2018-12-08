@@ -15,20 +15,21 @@ namespace Estacionamento.TestesDeUnidades.Patio.Aplicacao.CasosDeUso.Condutores
     {
         private readonly IProvedorDoTempo _provedorDoTempo;
         private readonly Veiculo _veiculo;
-        private readonly IRepositorioDeLeituraTickets _simuladorDeRepositorio;
+        private readonly IRepositorioDeLeituraTickets _repositorioDeLeituraTickets;
 
         public ServicoDeCondutorTestes()
         {
             _provedorDoTempo = new SimuladorDeDataHoraDoSistema { DataHora = DateTime.UtcNow };
             _veiculo = new FabricaDeVeiculo().ComAPlacaPadrao().Criar();
-            _simuladorDeRepositorio = new SimuladorDeRepositorioDeTickets(_provedorDoTempo, _veiculo);
+            //TODO Depois trocar pela implementação real do repositório
+            _repositorioDeLeituraTickets = new SimuladorDeRepositorioDeLeituraDeTickets(_provedorDoTempo, _veiculo);
         }
 
         [Fact]
         public void Deve_obter_um_bilhete_emitido()
         {
             //arrange
-            IServicoDeCondutor servicoDeCondutor = new ServicoDeCondutor(_simuladorDeRepositorio); //TODO Depois trocar pela implementação real do repositório
+            IServicoDeCondutor servicoDeCondutor = new ServicoDeCondutor(_repositorioDeLeituraTickets);
 
             //act
             var bilhete = servicoDeCondutor.ObterBilheteEmitidoPor(0);

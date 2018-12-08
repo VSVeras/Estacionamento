@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Patio.Infraestrutura
 {
-    public sealed class RepositorioDeTickets : IRepositorioDeEscritaTickets, IRepositorioDeLeituraTickets
+    public sealed class RepositorioDeLeituraDeTickets : IRepositorioDeLeituraTickets
     {
-        public RepositorioDeTickets()
+        public RepositorioDeLeituraDeTickets()
         {
         }
 
@@ -27,21 +27,6 @@ namespace Patio.Infraestrutura
             try
             {
                 return new List<Ticket>().AsQueryable().Where(UltimoTicket.Hoje).OrderByDescending(ordem => ordem.DataHoraDeEntrada).FirstOrDefault();
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
-        public void Salvar(Ticket ticket)
-        {
-            try
-            {
-                if (ticket.Valido())
-                {
-
-                }
             }
             catch
             {
