@@ -14,7 +14,7 @@ namespace Patio.Aplicacao.CasosDeUso.Condutores
         }
 
         // Deve obedecer ao contrato "IServicoDeCondutor" entre o contexto de Pátio/Checkout para retornar o Bilhete
-        public Bilhete ObterTicketEmitidoPor(int id)
+        public Bilhete ObterBilheteEmitidoPor(int id)
         {
             try
             {

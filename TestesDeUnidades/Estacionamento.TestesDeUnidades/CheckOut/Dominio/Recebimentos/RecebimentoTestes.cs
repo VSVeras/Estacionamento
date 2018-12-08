@@ -12,20 +12,20 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
 {
     public partial class RecebimentoTestes
     {
-        private readonly IProvedorDoTempo provedorDoTempo;
-        private readonly Recebimento recebimento;
-        private readonly Veiculo veiculo;
-        private readonly Bilhete bilhete;
-        private readonly decimal valorDaTransacao = 10m;
-        private readonly int ticketId = 1;
-        private readonly int minutosEmUmaHora = 60;
+        private readonly IProvedorDoTempo _provedorDoTempo;
+        private readonly Recebimento _recebimento;
+        private readonly Veiculo _veiculo;
+        private readonly Bilhete _bilhete;
+        private readonly decimal _valorDaTransacao = 10m;
+        private readonly int _ticketId = 1;
+        private readonly int _minutosEmUmaHora = 60;
 
         public RecebimentoTestes()
         {
-            provedorDoTempo = new ProvedorDataHoraSistema();
-            recebimento = new Recebimento();
-            veiculo = new FabricaDeVeiculo().ComAPlacaPadrao().Criar();
-            bilhete = new Bilhete(ticketId, DateTime.UtcNow, veiculo);
+            _provedorDoTempo = new ProvedorDataHoraSistema();
+            _recebimento = new Recebimento();
+            _veiculo = new FabricaDeVeiculo().ComAPlacaPadrao().Criar();
+            _bilhete = new Bilhete(_ticketId, DateTime.UtcNow, _veiculo);
         }
 
         [Fact]
@@ -37,112 +37,112 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             ticket.Saida(dataHoraDaSaida);
 
             //act
-            recebimento.Conferir(ticket);
+            _recebimento.Conferir(ticket);
 
             //assert
-            Assert.Equal(bilhete.TicketId, recebimento.Ticket.Id);
-            Assert.Equal(bilhete.Veiculo, recebimento.Ticket.Veiculo);
-            Assert.Equal(bilhete.DataHoraDeEntrada, recebimento.Ticket.Permanencia.Entrada);
-            Assert.Equal(dataHoraDaSaida.DataHora, recebimento.Ticket.Permanencia.Saida);
+            Assert.Equal(_bilhete.TicketId, _recebimento.Ticket.Id);
+            Assert.Equal(_bilhete.Veiculo, _recebimento.Ticket.Veiculo);
+            Assert.Equal(_bilhete.DataHoraDeEntrada, _recebimento.Ticket.Permanencia.Entrada);
+            Assert.Equal(dataHoraDaSaida.DataHora, _recebimento.Ticket.Permanencia.Saida);
         }
 
         [Fact]
         public void Deve_realizar_uma_cobranca_pela_permanencia_de_um_dia()
         {
-            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = bilhete.DataHoraDeEntrada.AddDays(1) };
+            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddDays(1) };
             var ticket = CriaUmTicket();
             ticket.Saida(dataHoraDaSaida);
-            recebimento.Conferir(ticket);
+            _recebimento.Conferir(ticket);
             var cobrancaPorHora = new CobrancaPorDiaria();
 
-            recebimento.CobrancaPorPermanencia(cobrancaPorHora);
+            _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
 
             decimal valorDaDiaria = 22.00m;
             double permanenciaEmHoras = 24;
             double totalDaPermanencia = ArredondarParaBaixo((double) valorDaDiaria / permanenciaEmHoras, 1);
             decimal valorEsperadoDoTotalAPagar = valorDaDiaria * (decimal) totalDaPermanencia;
-            Assert.Equal(valorEsperadoDoTotalAPagar, recebimento.TotalAPagar);
+            Assert.Equal(valorEsperadoDoTotalAPagar, _recebimento.TotalAPagar);
         }
 
         [Fact]
         public void Deve_realizar_uma_cobranca_pela_permanencia_de_quarenta_e_cinco_minutos()
         {
-            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = bilhete.DataHoraDeEntrada.AddMinutes(45) };
+            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddMinutes(45) };
             var ticket = CriaUmTicket();
             ticket.Saida(dataHoraDaSaida);
-            recebimento.Conferir(ticket);
+            _recebimento.Conferir(ticket);
             var cobrancaPorHora = new CobrancaPorHora();
 
-            recebimento.CobrancaPorPermanencia(cobrancaPorHora);
+            _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
 
             decimal valorDaHora = 12.00m;
             double totalDaPermanenciaEmMinutos = 45;
-            decimal valorEsperadoDoTotalAPagar = valorDaHora * (decimal) (totalDaPermanenciaEmMinutos / minutosEmUmaHora);
-            Assert.Equal(valorEsperadoDoTotalAPagar, recebimento.TotalAPagar);
+            decimal valorEsperadoDoTotalAPagar = valorDaHora * (decimal) (totalDaPermanenciaEmMinutos / _minutosEmUmaHora);
+            Assert.Equal(valorEsperadoDoTotalAPagar, _recebimento.TotalAPagar);
         }
 
         [Fact]
         public void Deve_realizar_uma_cobranca_pela_permanencia_de_uma_hora()
         {
-            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = bilhete.DataHoraDeEntrada.AddHours(1) };
+            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddHours(1) };
             var ticket = CriaUmTicket();
             ticket.Saida(dataHoraDaSaida);
-            recebimento.Conferir(ticket);
+            _recebimento.Conferir(ticket);
             var cobrancaPorHora = new CobrancaPorHora();
 
-            recebimento.CobrancaPorPermanencia(cobrancaPorHora);
+            _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
 
             decimal valorDaHora = 12.00m;
             double totalDaPermanenciaEmMinutos = 60;
-            decimal valorEsperadoDoTotalAPagar = valorDaHora * (decimal) (totalDaPermanenciaEmMinutos / minutosEmUmaHora);
-            Assert.Equal(valorEsperadoDoTotalAPagar, recebimento.TotalAPagar);
+            decimal valorEsperadoDoTotalAPagar = valorDaHora * (decimal) (totalDaPermanenciaEmMinutos / _minutosEmUmaHora);
+            Assert.Equal(valorEsperadoDoTotalAPagar, _recebimento.TotalAPagar);
         }
 
         [Fact]
         public void Deve_registrar_uma_forma_de_pagamento_a_um_recebimento()
         {
-            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = bilhete.DataHoraDeEntrada.AddMinutes(15) };
+            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddMinutes(15) };
             var ticket = CriaUmTicket();
             ticket.Saida(dataHoraDaSaida);
-            recebimento.Conferir(ticket);
+            _recebimento.Conferir(ticket);
             var cobrancaPorHora = new CobrancaPorDiaria();
-            recebimento.CobrancaPorPermanencia(cobrancaPorHora);
-            var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, valorDaTransacao);
+            _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
+            var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao);
 
-            recebimento.Registrar(transacaoEmDinheiro);
+            _recebimento.Registrar(transacaoEmDinheiro);
 
             var transacoesFinanceirasEsperada = new TransacoesFinanceiras();
-            transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, valorDaTransacao));
-            Assert.Equal(transacoesFinanceirasEsperada.Todas(), recebimento.TransacoesFinanceiras);
-            Assert.True(recebimento.TotalDasTransacoesFinanceiras() == valorDaTransacao);
+            transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao));
+            Assert.Equal(transacoesFinanceirasEsperada.Todas(), _recebimento.TransacoesFinanceiras);
+            Assert.True(_recebimento.TotalDasTransacoesFinanceiras() == _valorDaTransacao);
         }
 
         [Fact]
         public void Deve_registrar_duas_forma_de_pagamento_a_um_recebimento()
         {
-            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = bilhete.DataHoraDeEntrada.AddMinutes(15) };
+            var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddMinutes(15) };
             var ticket = CriaUmTicket();
             ticket.Saida(dataHoraDaSaida);
-            recebimento.Conferir(ticket);
+            _recebimento.Conferir(ticket);
             var cobrancaPorHora = new CobrancaPorDiaria();
-            recebimento.CobrancaPorPermanencia(cobrancaPorHora);
-            var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, valorDaTransacao);
-            var transacaoEmCartaDeDebito = new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, valorDaTransacao);
-            recebimento.Registrar(transacaoEmDinheiro);
+            _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
+            var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao);
+            var transacaoEmCartaDeDebito = new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, _valorDaTransacao);
+            _recebimento.Registrar(transacaoEmDinheiro);
 
-            recebimento.Registrar(transacaoEmCartaDeDebito);
+            _recebimento.Registrar(transacaoEmCartaDeDebito);
 
-            var valorDaTransacaoEsperado = valorDaTransacao * 2;
+            var valorDaTransacaoEsperado = _valorDaTransacao * 2;
             var transacoesFinanceirasEsperada = new TransacoesFinanceiras();
-            transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, valorDaTransacao));
-            transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, valorDaTransacao));
-            Assert.Equal(transacoesFinanceirasEsperada.Todas(), recebimento.TransacoesFinanceiras);
-            Assert.True(recebimento.TotalDasTransacoesFinanceiras() == valorDaTransacaoEsperado);
+            transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao));
+            transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, _valorDaTransacao));
+            Assert.Equal(transacoesFinanceirasEsperada.Todas(), _recebimento.TransacoesFinanceiras);
+            Assert.True(_recebimento.TotalDasTransacoesFinanceiras() == valorDaTransacaoEsperado);
         }
 
         public Ticket CriaUmTicket()
         {
-            return new Ticket(bilhete.TicketId, bilhete.DataHoraDeEntrada, bilhete.Veiculo);
+            return new Ticket(_bilhete.TicketId, _bilhete.DataHoraDeEntrada, _bilhete.Veiculo);
         }
 
         public double ArredondarParaBaixo(double valor, int numeroDeCasasDecimais)

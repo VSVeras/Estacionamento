@@ -3,6 +3,6 @@ namespace Nucleo.Compartilhado.Dominio.Condutores
 {
     public interface IServicoDeCondutor
     {
-        Bilhete ObterTicketEmitidoPor(int id);
+        Bilhete ObterBilheteEmitidoPor(int id);
     }
 }
