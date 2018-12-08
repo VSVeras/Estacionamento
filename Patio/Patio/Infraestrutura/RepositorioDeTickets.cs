@@ -26,7 +26,6 @@ namespace Patio.Infraestrutura
         {
             try
             {
-                // Horrível, refatorar assim que possível
                 return new List<Ticket>().AsQueryable().Where(UltimoTicket.Hoje).OrderByDescending(ordem => ordem.DataHoraDeEntrada).FirstOrDefault();
             }
             catch

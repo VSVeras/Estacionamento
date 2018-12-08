@@ -8,6 +8,6 @@ namespace Patio.Dominio.Tickets
     internal sealed class UltimoTicket
     {
         public static Expression<Func<Ticket, bool>> Hoje => 
-            OndeOCampo => OndeOCampo.DataHoraDeEntrada.Date == DateTime.UtcNow.Date;
+            OndeOCampo => OndeOCampo.DataHoraDeEntrada.Date >= DateTime.UtcNow.Date;
     }
 }
