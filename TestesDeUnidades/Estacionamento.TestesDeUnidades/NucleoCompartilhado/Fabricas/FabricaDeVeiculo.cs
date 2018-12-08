@@ -1,20 +1,21 @@
 ﻿using Nucleo.Compartilhado.Dominio.Condutores;
+using Nucleo.Compartilhado.Dominio.Veiculos;
 
 namespace Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas
 {
     public sealed class FabricaDeVeiculo
     {
-        private string Placa;
+        private Placa Placa;
 
         public FabricaDeVeiculo ComAPlacaPadrao()
         {
-            Placa = "NHC 3030";
+            Placa = new Placa("NHC 3030");
             return this;
         }
 
         public FabricaDeVeiculo ComAPlaca(string placa)
         {
-            Placa = placa;
+            Placa = new Placa(placa);
             return this;
         }
 

@@ -6,6 +6,7 @@ using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas;
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Infraestrutura.SistemaOperacional;
 using Nucleo.Compartilhado.Dominio.Condutores;
+using Nucleo.Compartilhado.Dominio.Veiculos;
 
 namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
 {

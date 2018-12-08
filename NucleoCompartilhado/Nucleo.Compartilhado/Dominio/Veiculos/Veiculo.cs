@@ -1,12 +1,12 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
 
-namespace Nucleo.Compartilhado.Dominio.Condutores
+namespace Nucleo.Compartilhado.Dominio.Veiculos
 {
     public sealed class Veiculo : ObjetoDeValor<Veiculo>
     {
-        public string Placa { get; }
+        public Placa Placa { get; }
 
-        public Veiculo(string placa)
+        public Veiculo(Placa placa)
         {
             Placa = placa;
         }

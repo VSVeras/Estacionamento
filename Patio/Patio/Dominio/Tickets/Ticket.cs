@@ -1,6 +1,6 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
 using Nucleo.Compartilhado.Dominio;
-using Nucleo.Compartilhado.Dominio.Condutores;
+using Nucleo.Compartilhado.Dominio.Veiculos;
 using System;
 
 namespace Patio.Dominio.Tickets

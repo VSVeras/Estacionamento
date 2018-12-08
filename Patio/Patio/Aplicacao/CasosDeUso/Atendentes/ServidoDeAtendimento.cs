@@ -41,7 +41,7 @@ namespace Patio.Aplicacao.Atendentes
             try
             {
                 var ticket = _repositorioDeLeituraTickets.ObterUltimo();
-                return new ObterUltimoTicket(ticket.Id, ticket.Veiculo.Placa, ticket.DataHoraDeEntrada);
+                return new ObterUltimoTicket(ticket.Id, ticket.Veiculo.Placa.Valor, ticket.DataHoraDeEntrada);
             }
             catch
             {

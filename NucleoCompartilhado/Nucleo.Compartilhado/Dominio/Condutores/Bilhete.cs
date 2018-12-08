@@ -1,4 +1,5 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
+using Nucleo.Compartilhado.Dominio.Veiculos;
 using System;
 
 // Sobre a organização dos módulos: Eles devem ser o índice das histórias.

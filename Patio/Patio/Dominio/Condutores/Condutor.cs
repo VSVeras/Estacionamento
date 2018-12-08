@@ -1,4 +1,5 @@
 ﻿using Nucleo.Compartilhado.Dominio.Condutores;
+using Nucleo.Compartilhado.Dominio.Veiculos;
 
 namespace Patio.Dominio.Condutores
 {
@@ -11,7 +12,8 @@ namespace Patio.Dominio.Condutores
     {
         public Veiculo Estacionar(string placa)
         {
-            return new Veiculo(placa);
+            var novaPlaca = new Placa(placa);
+            return new Veiculo(novaPlaca);
         }
     }
 }
