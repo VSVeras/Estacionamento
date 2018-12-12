@@ -1,4 +1,4 @@
-﻿using Patio.Aplicacao.CasoDeUso;
+﻿using Patio.Aplicacao.Atendentes.Comandos;
 
 namespace Patio.Aplicacao.Atendentes
 {

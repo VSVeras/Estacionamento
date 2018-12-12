@@ -1,4 +1,4 @@
-﻿namespace Patio.Aplicacao.CasoDeUso
+﻿namespace Patio.Aplicacao.Atendentes.Comandos
 {
     public class EntradaDeUmVeiculo
     {

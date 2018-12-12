@@ -4,7 +4,7 @@ using Estacionamento.TestesDeUnidades.Patio.Infraestrutura;
 using Nucleo.Compartilhado.Dominio;
 using Nucleo.Compartilhado.Dominio.Condutores;
 using Nucleo.Compartilhado.Dominio.Veiculos;
-using Patio.Aplicacao.CasosDeUso.Condutores;
+using Patio.Aplicacao.Condutores;
 using Patio.Dominio.Tickets;
 using System;
 using Xunit;

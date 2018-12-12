@@ -1,5 +1,5 @@
 ﻿using Nucleo.Compartilhado.Dominio;
-using Patio.Aplicacao.CasoDeUso;
+using Patio.Aplicacao.Atendentes.Comandos;
 using Patio.Dominio.Atendentes;
 using Patio.Dominio.Condutores;
 using Patio.Dominio.Tickets;
@@ -23,11 +23,11 @@ namespace Patio.Aplicacao.Atendentes
             _servicoDeEstacionamento = servicoDeEstacionamento;
         }
 
-        public void Registrar(EntradaDeUmVeiculo entradaDeUmVeiculo)
+        public void Registrar(EntradaDeUmVeiculo comando)
         {
             try
             {
-                var ticket = Atendente.Registrar.Entrada(_provedorDoTempo, _servicoDeEstacionamento, entradaDeUmVeiculo.Placa);
+                var ticket = Atendente.Registrar.Entrada(_provedorDoTempo, _servicoDeEstacionamento, comando.Placa);
                 _repositorioDeEscritaTickets.Salvar(ticket);
             }
             catch
