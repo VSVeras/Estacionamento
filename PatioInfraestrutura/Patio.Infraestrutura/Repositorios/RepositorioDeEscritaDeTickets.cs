@@ -1,8 +1,6 @@
 ﻿using Patio.Dominio.Tickets;
-using System.Collections.Generic;
-using System.Linq;
 
-namespace Patio.Infraestrutura
+namespace Patio.Infraestrutura.Repositorios
 {
     public sealed class RepositorioDeEscritaDeTickets : IRepositorioDeEscritaTickets
     {

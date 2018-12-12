@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Patio.Dominio.Tickets
 {
-    internal sealed class UltimoTicket
+    public sealed class UltimoTicket
     {
         public static Expression<Func<Ticket, bool>> Hoje => 
             OndeOCampo => OndeOCampo.DataHoraDeEntrada.Date >= DateTime.UtcNow.Date;

@@ -26,7 +26,7 @@ namespace Patio.Dominio.Tickets
             DataHoraDeEntrada = _provedorDoTempo.DataHora;
         }
 
-        internal bool Valido()
+        public bool Valido()
         {
             if (Veiculo == null)
                 return false;
