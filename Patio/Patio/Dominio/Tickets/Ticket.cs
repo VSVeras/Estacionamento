@@ -6,10 +6,10 @@ using System;
 namespace Patio.Dominio.Tickets
 {
     // A raiz do agregado dever atender a todos os fluxos do caso de uso.
-    public sealed class Ticket : Agregado
+    public class Ticket : Agregado
     {
-        public Veiculo Veiculo { get; private set; }
-        public DateTime DataHoraDeEntrada { get; private set; }
+        public virtual Veiculo Veiculo { get; private set; }
+        public virtual DateTime DataHoraDeEntrada { get; private set; }
 
         private readonly IProvedorDoTempo _provedorDoTempo;
 
@@ -18,7 +18,7 @@ namespace Patio.Dominio.Tickets
             _provedorDoTempo = provedorDeDataHora;
         }
 
-        public void Entrada(Veiculo veiculo)
+        public virtual void Entrada(Veiculo veiculo)
         {
             if (Veiculo != null) return;
 
@@ -26,7 +26,7 @@ namespace Patio.Dominio.Tickets
             DataHoraDeEntrada = _provedorDoTempo.DataHora;
         }
 
-        public bool Valido()
+        public virtual bool Valido()
         {
             if (Veiculo == null)
                 return false;

@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Patio.Infraestrutura.Repositorios
 {
-    public sealed class RepositorioDeLeituraDeTickets : IRepositorioDeLeituraTickets
+    public sealed class RepositorioLeituraDeTickets : IRepositorioDeLeituraTickets
     {
-        public RepositorioDeLeituraDeTickets()
+        public RepositorioLeituraDeTickets()
         {
         }
 
