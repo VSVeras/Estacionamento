@@ -8,24 +8,32 @@ namespace Patio.Infraestrutura.Repositorios
     {
         public void Salvar(Ticket ticket)
         {
-            try
+            if (ticket.Valido())
             {
-                if (ticket.Valido())
+                try
                 {
                     using (ISession sessao = SessionNHibernate.Criar().OpenSession())
                     {
                         using (ITransaction trasacao = sessao.BeginTransaction())
                         {
-                            sessao.SaveOrUpdate(ticket);
-                            sessao.Flush();
-                            trasacao.Commit();
+                            try
+                            {
+                                sessao.SaveOrUpdate(ticket);
+                                sessao.Flush();
+                                trasacao.Commit();
+                            }
+                            catch
+                            {
+                                trasacao.Rollback();
+                                throw;
+                            }
                         }
                     }
                 }
-            }
-            catch
-            {
-                throw;
+                catch
+                {
+                    throw;
+                }
             }
         }
     }
