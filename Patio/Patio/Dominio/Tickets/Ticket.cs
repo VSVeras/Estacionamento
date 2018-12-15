@@ -8,6 +8,7 @@ namespace Patio.Dominio.Tickets
     // A raiz do agregado dever atender a todos os fluxos do caso de uso.
     public class Ticket : Agregado
     {
+        // O virtual necessário para o Hibernate fazer o proxy
         public virtual Veiculo Veiculo { get; private set; }
         public virtual DateTime DataHoraDeEntrada { get; private set; }
 

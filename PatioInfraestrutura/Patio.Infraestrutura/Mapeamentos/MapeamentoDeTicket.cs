@@ -12,9 +12,10 @@ namespace Patio.Infraestrutura.Mapeamentos
 
             Id(atributo => atributo.Id).GeneratedBy.Identity();
 
+            // Mapeando objeto de valor
             Component(objetoDeValor => objetoDeValor.Veiculo, entidade =>
             {
-                entidade.Map(atributo => atributo.Placa).Column("Placa").Not.Nullable(); ;
+                entidade.Map(atributo => atributo.Placa).Column("Placa").Not.Nullable();
             });
 
             Map(atributo => atributo.DataHoraDeEntrada).Not.Nullable(); ;

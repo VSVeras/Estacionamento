@@ -2,9 +2,9 @@
 
 namespace Patio.Infraestrutura.Repositorios
 {
-    public sealed class RepositorioEscritaDeTickets : IRepositorioDeEscritaTickets
+    public sealed class RepositorioDeEscritaDeTickets : IRepositorioDeEscritaTickets
     {
-        public RepositorioEscritaDeTickets()
+        public RepositorioDeEscritaDeTickets()
         {
         }
 
