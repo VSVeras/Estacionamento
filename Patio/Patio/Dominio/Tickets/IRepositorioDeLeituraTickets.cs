@@ -2,7 +2,7 @@
 {
     public interface IRepositorioDeLeituraTickets
     {
-        Ticket ObterPor(int Id);
+        Ticket ObterPor(int id);
         Ticket ObterUltimo();
     }
 }

@@ -15,7 +15,7 @@ namespace Estacionamento.TestesDeUnidades.Patio.Infraestrutura
             _veiculo = veiculo;
         }
 
-        public Ticket ObterPor(int Id)
+        public Ticket ObterPor(int id)
         {
             var ticket = new Ticket(_provedorDeDataHora);
             ticket.Entrada(_veiculo);
