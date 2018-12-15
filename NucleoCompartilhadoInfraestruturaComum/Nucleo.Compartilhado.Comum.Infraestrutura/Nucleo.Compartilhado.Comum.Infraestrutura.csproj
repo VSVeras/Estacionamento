@@ -10,9 +10,4 @@
     <PackageReference Include="NHibernate" Version="5.2.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\NucleoCompartilhadoInfraestruturaComum\Nucleo.Compartilhado.Comum.Infraestrutura\Nucleo.Compartilhado.Comum.Infraestrutura.csproj" />
-    <ProjectReference Include="..\..\Patio\Patio\Patio.csproj" />
-  </ItemGroup>
-
 </Project>
