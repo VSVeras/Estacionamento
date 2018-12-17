@@ -1,6 +1,7 @@
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas;
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Infraestrutura.SistemaOperacional;
 using Nucleo.Compartilhado.Dominio;
+using Nucleo.Compartilhado.Dominio.Veiculos;
 using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
 using Patio.Dominio.Condutores;
 using Patio.Dominio.Tickets;
@@ -16,7 +17,7 @@ namespace Estacionamento.TestesDeUnidades.Patio.Dominio.Tickets
             //arrange
             var placaPadrao = "NHC 3030";
             IServicoDeEstacionamento servicoDeEstacionamento = new Condutor();
-            var veiculo = servicoDeEstacionamento.Estacionar(placaPadrao);
+            Veiculo veiculo = servicoDeEstacionamento.Estacionar(placaPadrao);
             IProvedorDoTempo provedorDoTempo = new ProvedorDataHoraSistema();
             var ticket = new Ticket(provedorDoTempo);
 
@@ -28,6 +29,7 @@ namespace Estacionamento.TestesDeUnidades.Patio.Dominio.Tickets
             var dataHoraEspedada = new SimuladorDeDataHoraDoSistema { DataHora = ticket.DataHoraDeEntrada };
             Assert.Equal(veiculoEsperado, ticket.Veiculo);
             Assert.Equal(dataHoraEspedada.DataHora, ticket.DataHoraDeEntrada);
+            Assert.True(!ticket.Valido());
         }
     }
 }

@@ -7,6 +7,18 @@ namespace Nucleo.Compartilhado.Comum.Dominio
 {
     public abstract class ObjetoDeValor<T> : IEquatable<T> where T : ObjetoDeValor<T>
     {
+        public virtual IEspecificacaoDeNegocio QuebraDeEspeficacao { get; }
+
+        protected ObjetoDeValor()
+        {
+            QuebraDeEspeficacao = new QuebraDeEspeficacao();
+        }
+
+        public ObjetoDeValor(IEspecificacaoDeNegocio especificacaoDeNegocio)
+        {
+            QuebraDeEspeficacao = especificacaoDeNegocio;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -97,6 +109,11 @@ namespace Nucleo.Compartilhado.Comum.Dominio
         public static bool operator !=(ObjetoDeValor<T> x, ObjetoDeValor<T> y)
         {
             return !(x == y);
+        }
+
+        public bool Valido()
+        {
+            return QuebraDeEspeficacao.HouveViolacao();
         }
     }
 }

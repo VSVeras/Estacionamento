@@ -4,6 +4,8 @@ using Patio.Dominio.Atendentes;
 using Patio.Dominio.Condutores;
 using Patio.Dominio.Tickets;
 
+// OBS.: Essa camada poderia ser simplesmente uma camada CRUD tradicional, para fins didáticos resolvemos criar usando conceitos do DDD.
+// Existe também a premissa segundo Martin Fowler: Por que devemos criar um modelo rico? A resposta foi, por que não devemos começamos com um modelo rico?
 namespace Patio.Aplicacao.Atendentes
 {
     // Serviços de aplicação serve para orquestrar as operações/fluxos dos casos de uso.

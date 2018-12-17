@@ -9,9 +9,14 @@ namespace Nucleo.Compartilhado.Dominio.Veiculos
 
         public Placa(string valor)
         {
-            var placaValida = new Regex("[a-zA-Z]{3}[0-9]{4}");
-            if (placaValida.IsMatch(valor))
-                return;
+            if (string.IsNullOrWhiteSpace(valor))
+                QuebraDeEspeficacao.Adicionar(new RegraDeNegocio("A identificação da placa não foi informada."));
+            else
+            {
+                var regraValidaDoConteudo = new Regex("[a-zA-Z]{3}[0-9]{4}");
+                if (regraValidaDoConteudo.IsMatch(valor))
+                    QuebraDeEspeficacao.Adicionar(new RegraDeNegocio("A placa deve conter letras e números"));
+            }
 
             Valor = valor;
         }
