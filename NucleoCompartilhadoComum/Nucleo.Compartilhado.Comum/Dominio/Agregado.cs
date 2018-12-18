@@ -17,7 +17,7 @@ namespace Nucleo.Compartilhado.Comum.Dominio
             QuebraDeEspeficacao = especificacaoDeNegocio;
         }
 
-        public bool Valido()
+        public virtual bool Valido()
         {
             return QuebraDeEspeficacao.HouveViolacao();
         }

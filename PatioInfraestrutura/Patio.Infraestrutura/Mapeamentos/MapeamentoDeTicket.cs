@@ -13,12 +13,15 @@ namespace Patio.Infraestrutura.Mapeamentos
             Id(atributo => atributo.Id).GeneratedBy.Identity();
 
             // Mapeamento para o objeto de valor
-            Component(objetoDeValor => objetoDeValor.Veiculo, entidade =>
+            Component(atributoVeiculo => atributoVeiculo.Veiculo, propriedadeDoVeiculo =>
             {
-                entidade.Map(atributo => atributo.Placa).Column("Placa").Not.Nullable();
+                propriedadeDoVeiculo.Component(atributoPlaca => atributoPlaca.Placa, propriedadeDaPlaca =>
+                {
+                    propriedadeDaPlaca.Map(Campo => Campo.Valor).Column("Placa").Not.Nullable().Length(9);
+                });
             });
 
-            Map(atributo => atributo.DataHoraDeEntrada).Not.Nullable(); ;
+            Map(atributo => atributo.DataHoraDeEntrada).Not.Nullable();
         }
     }
 }

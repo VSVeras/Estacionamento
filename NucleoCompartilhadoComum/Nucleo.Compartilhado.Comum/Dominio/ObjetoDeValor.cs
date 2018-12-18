@@ -111,7 +111,7 @@ namespace Nucleo.Compartilhado.Comum.Dominio
             return !(x == y);
         }
 
-        public bool Valido()
+        public virtual bool Valido()
         {
             return QuebraDeEspeficacao.HouveViolacao();
         }

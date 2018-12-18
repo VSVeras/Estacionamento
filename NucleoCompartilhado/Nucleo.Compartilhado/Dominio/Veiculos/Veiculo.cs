@@ -2,9 +2,11 @@
 
 namespace Nucleo.Compartilhado.Dominio.Veiculos
 {
-    public sealed class Veiculo : ObjetoDeValor<Veiculo>
+    public class Veiculo : ObjetoDeValor<Veiculo>
     {
-        public Placa Placa { get; }
+        public virtual Placa Placa { get; protected set; }
+
+        protected Veiculo() { }
 
         public Veiculo(Placa placa)
         {

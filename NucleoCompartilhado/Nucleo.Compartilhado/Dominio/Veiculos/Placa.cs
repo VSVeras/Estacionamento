@@ -3,9 +3,11 @@ using System.Text.RegularExpressions;
 
 namespace Nucleo.Compartilhado.Dominio.Veiculos
 {
-    public sealed class Placa : ObjetoDeValor<Placa>
+    public class Placa : ObjetoDeValor<Placa>
     {
-        public string Valor { get; }
+        public virtual string Valor { get; protected set; }
+
+        protected Placa() { }
 
         public Placa(string valor)
         {

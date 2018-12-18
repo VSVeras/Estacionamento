@@ -9,10 +9,12 @@ namespace Patio.Dominio.Tickets
     public class Ticket : Agregado
     {
         // O virtual necessário para o Hibernate fazer o proxy
-        public virtual Veiculo Veiculo { get; private set; }
-        public virtual DateTime DataHoraDeEntrada { get; private set; }
+        public virtual Veiculo Veiculo { get; protected set; }
+        public virtual DateTime DataHoraDeEntrada { get; protected set; }
 
         private readonly IProvedorDoTempo _provedorDoTempo;
+
+        protected Ticket() { }
 
         public Ticket(IProvedorDoTempo provedorDeDataHora)
         {

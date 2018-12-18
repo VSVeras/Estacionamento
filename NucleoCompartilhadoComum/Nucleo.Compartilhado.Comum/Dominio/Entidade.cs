@@ -18,7 +18,7 @@ namespace Nucleo.Compartilhado.Comum.Dominio
             return Equals(obj as Entidade);
         }
 
-        public bool Equals(Entidade entidade)
+        public virtual bool Equals(Entidade entidade)
         {
             if (ReferenceEquals(entidade, null))
                 return false;
