@@ -12,8 +12,8 @@ namespace Nucleo.Compartilhado.Comum.Infraestrutura.Persistencia
 {
     public class SessionNHibernate
     {
-        // Data Source=localhost,1433;Initial Catalog=Estacionamento;Persist Security Info=True;User ID=sa;Pwd=./abre7eses@mo;MultipleActiveResultSets=True;
-        // Server=localhost,1433;Database=Estacionamento;User ID=sa;Pwd=./abre7eses@mo;
+        // O banco de dados tem que ser criado na mão.
+        // Refatorar assim que possível, a string de conexão não pode ficar fixa da forma que está.
         public static ISessionFactory Criar()
         {
             ISessionFactory sessionFactory = Fluently.Configure()

@@ -21,11 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patio.Infraestrutura", "Pat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nucleo.Compartilhado.Comum.Infraestrutura", "NucleoCompartilhadoInfraestruturaComum\Nucleo.Compartilhado.Comum.Infraestrutura\Nucleo.Compartilhado.Comum.Infraestrutura.csproj", "{4990650F-4CCB-41B4-85DA-CA2EDF767369}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estacionamento.TestesDeUnidades", "TestesDeUnidade\Estacionamento.TestesDeUnidades\Estacionamento.TestesDeUnidades.csproj", "{4FB89304-784D-4F9B-B4BC-98056FAFC3F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Estacionamento.TestesDeUnidades", "TestesDeUnidade\Estacionamento.TestesDeUnidades\Estacionamento.TestesDeUnidades.csproj", "{4FB89304-784D-4F9B-B4BC-98056FAFC3F9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes de Integracao", "Testes de Integracao", "{10507F08-2376-4C3F-AF01-089C3A788133}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes de Integração", "Testes de Integração", "{10507F08-2376-4C3F-AF01-089C3A788133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estacionamento.TestesDeIntegracao", "TestesDeIntegracao\Estacionamento.TestesDeIntegracao\Estacionamento.TestesDeIntegracao.csproj", "{0913C7A2-DEB7-4DB7-81AC-4754BD00DC7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Estacionamento.TestesDeIntegracao", "TestesDeIntegracao\Estacionamento.TestesDeIntegracao\Estacionamento.TestesDeIntegracao.csproj", "{0913C7A2-DEB7-4DB7-81AC-4754BD00DC7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
