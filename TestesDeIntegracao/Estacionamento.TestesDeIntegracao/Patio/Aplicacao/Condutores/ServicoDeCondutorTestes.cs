@@ -16,14 +16,8 @@ namespace Estacionamento.TestesDeIntegracao.Patio.Aplicacao.Condutores
 
         public ServicoDeCondutorTestes()
         {
-            using (ISession sessao = SessionNHibernate.Criar().OpenSession())
-            {
-                using (var transacao = sessao.BeginTransaction())
-                {
-                    sessao.CreateSQLQuery("INSERT INTO Ticket (DataHoraDeEntrada, Placa) VALUES ('2018-01-01 00:00:00.000', 'NHC 3030');").ExecuteUpdate();
-                    transacao.Commit();
-                }
-            }
+            ExecuteQuery("INSERT INTO Ticket (DataHoraDeEntrada, Placa) VALUES ('2018-01-01 00:00:00.000', 'NHC 3030');");
+
             _repositorioDeLeituraTickets = new RepositorioDeLeituraDeTickets();
         }
 
@@ -45,11 +39,16 @@ namespace Estacionamento.TestesDeIntegracao.Patio.Aplicacao.Condutores
 
         public void Dispose()
         {
+            ExecuteQuery("TRUNCATE TABLE Ticket;");
+        }
+
+        private static void ExecuteQuery(string query)
+        {
             using (ISession sessao = SessionNHibernate.Criar().OpenSession())
             {
                 using (var transacao = sessao.BeginTransaction())
                 {
-                    sessao.CreateSQLQuery("TRUNCATE TABLE Ticket;").ExecuteUpdate();
+                    sessao.CreateSQLQuery(query).ExecuteUpdate();
                     transacao.Commit();
                 }
             }
