@@ -29,8 +29,10 @@ namespace Patio.Dominio.Tickets
             if (veiculo == null)
                 QuebraDeEspeficacao.Adicionar(new RegraDeNegocio("Veículo não foi informado."));
             else
+            {
                 if (veiculo.Valido())
                     QuebraDeEspeficacao.Adicionar(veiculo.QuebraDeEspeficacao.RegraDeNegocio);
+            }
 
 
             if (_provedorDoTempo != null)
