@@ -1,4 +1,5 @@
-﻿using Nucleo.Compartilhado.Dominio;
+﻿using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas;
+using Nucleo.Compartilhado.Dominio;
 using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
 using Patio.Dominio.Atendentes;
 using Patio.Dominio.Condutores;
@@ -20,7 +21,9 @@ namespace Estacionamento.TestesDeUnidades.Patio.Dominio.Atendentes
             var ticket = Atendente.Registrar.Entrada(provedorDoTempo, servicoDeEstacionamento, placaPadrao);
 
             //assert
+            var veiculoEsperado = new FabricaDeVeiculo().ComAPlacaPadrao().Criar();
             Assert.NotNull(ticket);
+            Assert.Equal(veiculoEsperado, ticket.Veiculo);
         }
     }
 }
