@@ -4,7 +4,7 @@ using Nucleo.Compartilhado.Dominio.Veiculos;
 namespace Patio.Dominio.Condutores
 {
     // Serviço de domínio deve ser representado por um contrato "IServicoDeEstacionamento"
-    // Server para: 
+    // Serve para: 
     // Transformar um objeto entre uma composição e outra
     // Orquestra entidades e objetos e encapsulam politicas e processos
     // Não deve possuir estado 

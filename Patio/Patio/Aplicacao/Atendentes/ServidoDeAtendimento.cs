@@ -31,6 +31,7 @@ namespace Patio.Aplicacao.Atendentes
         {
             try
             {
+                //Procure modelar abstrações úteis dentro do domínio do problema.
                 var ticket = Atendente.Registrar.Entrada(_provedorDoTempo, _servicoDeEstacionamento, comando.Placa);
                 _repositorioDeEscritaTickets.Salvar(ticket);
             }
