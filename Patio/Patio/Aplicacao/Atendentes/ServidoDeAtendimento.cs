@@ -31,7 +31,9 @@ namespace Patio.Aplicacao.Atendentes
         {
             try
             {
-                //Procure modelar abstrações úteis dentro do domínio do problema.
+                //Procure modelar abstrações úteis dentro do domínio do problema. Como não se trata de modelar a vida real, 
+                //o modelo de domínio não pode ser considerado errado ou certo. Pelo contrário, ele deve ser considerado útil 
+                //ou não para o problema que está sendo usado para resolver. 
                 var ticket = Atendente.Registrar.Entrada(_provedorDoTempo, _servicoDeEstacionamento, comando.Placa);
                 _repositorioDeEscritaTickets.Salvar(ticket);
             }
