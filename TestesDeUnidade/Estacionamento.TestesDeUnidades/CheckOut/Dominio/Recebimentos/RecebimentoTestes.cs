@@ -19,6 +19,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
         private readonly decimal _valorDaTransacao = 10m;
         private readonly int _ticketId = 1;
         private readonly int _minutosEmUmaHora = 60;
+        private readonly Ticket _ticket;
 
         public RecebimentoTestes()
         {
@@ -26,6 +27,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             _recebimento = new Recebimento();
             _veiculo = new FabricaDeVeiculo().ComAPlacaPadrao().Criar();
             _bilhete = new Bilhete(_ticketId, DateTime.UtcNow, _veiculo);
+            _ticket = new Ticket(_bilhete.TicketId, _bilhete.DataHoraDeEntrada, _bilhete.Veiculo);
         }
 
         [Fact]
@@ -33,11 +35,10 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
         {
             //arrange
             var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = DateTime.UtcNow.AddMinutes(15) };
-            var ticket = CriaUmTicket();
-            ticket.Saida(dataHoraDaSaida);
+            _ticket.Saida(dataHoraDaSaida);
 
             //act
-            _recebimento.Conferir(ticket);
+            _recebimento.Conferir(_ticket);
 
             //assert
             Assert.Equal(_bilhete.TicketId, _recebimento.Ticket.Id);
@@ -50,9 +51,8 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
         public void Deve_realizar_uma_cobranca_pela_permanencia_de_um_dia()
         {
             var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddDays(1) };
-            var ticket = CriaUmTicket();
-            ticket.Saida(dataHoraDaSaida);
-            _recebimento.Conferir(ticket);
+            _ticket.Saida(dataHoraDaSaida);
+            _recebimento.Conferir(_ticket);
             var cobrancaPorHora = new CobrancaPorDiaria();
 
             _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
@@ -68,9 +68,8 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
         public void Deve_realizar_uma_cobranca_pela_permanencia_de_quarenta_e_cinco_minutos()
         {
             var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddMinutes(45) };
-            var ticket = CriaUmTicket();
-            ticket.Saida(dataHoraDaSaida);
-            _recebimento.Conferir(ticket);
+            _ticket.Saida(dataHoraDaSaida);
+            _recebimento.Conferir(_ticket);
             var cobrancaPorHora = new CobrancaPorHora();
 
             _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
@@ -85,9 +84,8 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
         public void Deve_realizar_uma_cobranca_pela_permanencia_de_uma_hora()
         {
             var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddHours(1) };
-            var ticket = CriaUmTicket();
-            ticket.Saida(dataHoraDaSaida);
-            _recebimento.Conferir(ticket);
+            _ticket.Saida(dataHoraDaSaida);
+            _recebimento.Conferir(_ticket);
             var cobrancaPorHora = new CobrancaPorHora();
 
             _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
@@ -102,9 +100,8 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
         public void Deve_registrar_uma_forma_de_pagamento_a_um_recebimento()
         {
             var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddMinutes(15) };
-            var ticket = CriaUmTicket();
-            ticket.Saida(dataHoraDaSaida);
-            _recebimento.Conferir(ticket);
+            _ticket.Saida(dataHoraDaSaida);
+            _recebimento.Conferir(_ticket);
             var cobrancaPorHora = new CobrancaPorDiaria();
             _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
             var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao);
@@ -121,9 +118,8 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
         public void Deve_registrar_duas_forma_de_pagamento_a_um_recebimento()
         {
             var dataHoraDaSaida = new SimuladorDeDataHoraDoSistema { DataHora = _bilhete.DataHoraDeEntrada.AddMinutes(15) };
-            var ticket = CriaUmTicket();
-            ticket.Saida(dataHoraDaSaida);
-            _recebimento.Conferir(ticket);
+            _ticket.Saida(dataHoraDaSaida);
+            _recebimento.Conferir(_ticket);
             var cobrancaPorHora = new CobrancaPorDiaria();
             _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
             var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao);
@@ -138,11 +134,6 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, _valorDaTransacao));
             Assert.Equal(transacoesFinanceirasEsperada.Todas(), _recebimento.TransacoesFinanceiras);
             Assert.True(_recebimento.TotalDasTransacoesFinanceiras() == valorDaTransacaoEsperado);
-        }
-
-        public Ticket CriaUmTicket()
-        {
-            return new Ticket(_bilhete.TicketId, _bilhete.DataHoraDeEntrada, _bilhete.Veiculo);
         }
 
         public double ArredondarParaBaixo(double valor, int numeroDeCasasDecimais)
