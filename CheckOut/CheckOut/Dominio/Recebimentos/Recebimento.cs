@@ -10,7 +10,7 @@ namespace CheckOut.Dominio.Recebimentos
   
         public IReadOnlyCollection<TransacaoFinanceira> TransacoesFinanceiras
         {
-            get { return _transacoesFinanceiras.Todas(); }
+            get { return _transacoesFinanceiras.Transacoes(); }
         }
 
         public decimal TotalAPagar { get; private set; }
@@ -44,7 +44,7 @@ namespace CheckOut.Dominio.Recebimentos
 
         public decimal TotalDasTransacoesFinanceiras()
         {
-            return _transacoesFinanceiras.Todas().Count > 0 ? _transacoesFinanceiras.Total() : 0.00m;
+            return _transacoesFinanceiras.Transacoes().Count > 0 ? _transacoesFinanceiras.Total() : 0.00m;
         }
     }
 }

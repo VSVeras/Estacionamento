@@ -106,11 +106,11 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
             var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao);
 
-            _recebimento.Registrar(transacaoEmDinheiro);
+           _recebimento.Registrar(transacaoEmDinheiro);
 
             var transacoesFinanceirasEsperada = new TransacoesFinanceiras();
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao));
-            Assert.Equal(transacoesFinanceirasEsperada.Todas(), _recebimento.TransacoesFinanceiras);
+            Assert.Equal(transacoesFinanceirasEsperada.Transacoes(), _recebimento.TransacoesFinanceiras);
             Assert.True(_recebimento.TotalDasTransacoesFinanceiras() == _valorDaTransacao);
         }
 
@@ -132,13 +132,14 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             var transacoesFinanceirasEsperada = new TransacoesFinanceiras();
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao));
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, _valorDaTransacao));
-            Assert.Equal(transacoesFinanceirasEsperada.Todas(), _recebimento.TransacoesFinanceiras);
+            Assert.Equal(transacoesFinanceirasEsperada.Transacoes(), _recebimento.TransacoesFinanceiras);
             Assert.True(_recebimento.TotalDasTransacoesFinanceiras() == valorDaTransacaoEsperado);
         }
 
         public double ArredondarParaBaixo(double valor, int numeroDeCasasDecimais)
         {
-            return Math.Ceiling(valor * Math.Pow(10, numeroDeCasasDecimais)) / Math.Pow(10, numeroDeCasasDecimais);
+            var valorParaArredondamento = Math.Pow(10, numeroDeCasasDecimais);
+            return Math.Ceiling(valor * valorParaArredondamento) / valorParaArredondamento;
         }
     }
 }

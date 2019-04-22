@@ -13,7 +13,7 @@ namespace CheckOut.Dominio.Recebimentos
             _trasacoesFinanceira = new List<TransacaoFinanceira>();
         }
 
-        public IReadOnlyCollection<TransacaoFinanceira> Todas()
+        public IReadOnlyCollection<TransacaoFinanceira> Transacoes()
         {
             return new ReadOnlyCollection<TransacaoFinanceira>(_trasacoesFinanceira);
         }
