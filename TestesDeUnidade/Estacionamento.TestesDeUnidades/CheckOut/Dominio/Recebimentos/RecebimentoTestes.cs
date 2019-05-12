@@ -110,7 +110,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
 
             var transacoesFinanceirasEsperada = new TransacoesFinanceiras();
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao));
-            Assert.Equal(transacoesFinanceirasEsperada.Transacoes(), _recebimento.TransacoesFinanceiras);
+            Assert.Equal(transacoesFinanceirasEsperada.Transacoes(), _recebimento.TransacoesFinanceiras.Transacoes());
             Assert.True(_recebimento.TotalDasTransacoesFinanceiras() == _valorDaTransacao);
         }
 
@@ -132,7 +132,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             var transacoesFinanceirasEsperada = new TransacoesFinanceiras();
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao));
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, _valorDaTransacao));
-            Assert.Equal(transacoesFinanceirasEsperada.Transacoes(), _recebimento.TransacoesFinanceiras);
+            Assert.Equal(transacoesFinanceirasEsperada.Transacoes(), _recebimento.TransacoesFinanceiras.Transacoes());
             Assert.True(_recebimento.TotalDasTransacoesFinanceiras() == valorDaTransacaoEsperado);
         }
 

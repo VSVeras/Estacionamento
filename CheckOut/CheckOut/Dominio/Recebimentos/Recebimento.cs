@@ -6,18 +6,14 @@ namespace CheckOut.Dominio.Recebimentos
     public sealed class Recebimento : Entidade
     {
         public Ticket Ticket { get; private set; }
-        private readonly TransacoesFinanceiras _transacoesFinanceiras;
   
-        public IReadOnlyCollection<TransacaoFinanceira> TransacoesFinanceiras
-        {
-            get { return _transacoesFinanceiras.Transacoes(); }
-        }
+        public TransacoesFinanceiras TransacoesFinanceiras { get; private set; }
 
         public decimal TotalAPagar { get; private set; }
 
         public Recebimento()
         {
-            _transacoesFinanceiras = new TransacoesFinanceiras();
+            TransacoesFinanceiras = new TransacoesFinanceiras();
         }
 
         public void Conferir(Ticket ticket)
@@ -38,13 +34,13 @@ namespace CheckOut.Dominio.Recebimentos
         public void Registrar(TransacaoFinanceira transacaoFinanceira)
         {
             if (TotalAPagar > 0.00m)
-                _transacoesFinanceiras.Adicionar(transacaoFinanceira);
+                TransacoesFinanceiras.Adicionar(transacaoFinanceira);
 
         }
 
         public decimal TotalDasTransacoesFinanceiras()
         {
-            return _transacoesFinanceiras.Transacoes().Count > 0 ? _transacoesFinanceiras.Total() : 0.00m;
+            return TransacoesFinanceiras.Transacoes().Count > 0 ? TransacoesFinanceiras.Total() : 0.00m;
         }
     }
 }
