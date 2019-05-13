@@ -7,15 +7,11 @@ namespace CheckOut.Dominio.Recebimentos
     public sealed class TransacoesFinanceiras
     {
         private readonly IList<TransacaoFinanceira> _trasacoesFinanceira;
+        public IReadOnlyCollection<TransacaoFinanceira> Transacoes { get { return _trasacoesFinanceira.ToList(); }  }
 
         public TransacoesFinanceiras()
         {
             _trasacoesFinanceira = new List<TransacaoFinanceira>();
-        }
-
-        public IReadOnlyCollection<TransacaoFinanceira> Transacoes()
-        {
-            return new ReadOnlyCollection<TransacaoFinanceira>(_trasacoesFinanceira);
         }
 
         public void Adicionar(TransacaoFinanceira transacao)

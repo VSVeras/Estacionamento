@@ -1,5 +1,4 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
-using System.Collections.Generic;
 
 namespace CheckOut.Dominio.Recebimentos
 {
@@ -40,7 +39,7 @@ namespace CheckOut.Dominio.Recebimentos
 
         public decimal TotalDasTransacoesFinanceiras()
         {
-            return TransacoesFinanceiras.Transacoes().Count > 0 ? TransacoesFinanceiras.Total() : 0.00m;
+            return TransacoesFinanceiras.Transacoes.Count > 0 ? TransacoesFinanceiras.Total() : 0.00m;
         }
     }
 }
