@@ -1,5 +1,4 @@
-﻿using Nucleo.Compartilhado.Dominio.Condutores;
-using Nucleo.Compartilhado.Dominio.Veiculos;
+﻿using Nucleo.Compartilhado.Dominio.Veiculos;
 
 namespace Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas
 {

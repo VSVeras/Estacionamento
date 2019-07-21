@@ -28,7 +28,10 @@ namespace Patio.Infraestrutura.Repositorios
             {
                 using (ISession sessao = SessionNHibernate.Criar().OpenSession())
                 {
-                    return sessao.Query<Ticket>().AsQueryable().Where(UltimoTicket.Hoje).OrderByDescending(ordem => ordem.DataHoraDeEntrada).FirstOrDefault();
+                    return sessao.Query<Ticket>().AsQueryable()
+                        .Where(UltimoTicket.Hoje)
+                        .OrderByDescending(ordem => ordem.DataHoraDeEntrada)
+                        .FirstOrDefault();
                 }
             }
             catch

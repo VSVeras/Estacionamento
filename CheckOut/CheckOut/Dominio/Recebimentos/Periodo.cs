@@ -21,7 +21,7 @@ namespace CheckOut.Dominio.Recebimentos
 
         public double PorMinutos()
         {
-            if (Saida == null)
+            if (Saida == DateTime.MinValue)
                 return 0;
 
             return Saida.Subtract(Entrada).TotalMinutes;
@@ -29,7 +29,7 @@ namespace CheckOut.Dominio.Recebimentos
 
         public double PorDias()
         {
-            if (Saida == null)
+            if (Saida == DateTime.MinValue)
                 return 0;
 
             return Saida.Subtract(Entrada).TotalDays;

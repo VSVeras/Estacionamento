@@ -36,7 +36,7 @@ namespace Patio.Dominio.Tickets
 
 
             if (_provedorDoTempo != null)
-                if (_provedorDoTempo.DataHora == null)
+                if (_provedorDoTempo.DataHora == DateTime.MinValue)
                     QuebraDeEspeficacao.Adicionar(new RegraDeNegocio("Data de entrada não foi informada."));
 
             if (!QuebraDeEspeficacao.HouveViolacao())

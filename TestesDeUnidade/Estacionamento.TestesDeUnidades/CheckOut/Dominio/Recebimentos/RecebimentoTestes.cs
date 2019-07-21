@@ -123,8 +123,8 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             var cobrancaPorHora = new CobrancaPorDiaria();
             _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
             var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao);
-            var transacaoEmCartaDeDebito = new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, _valorDaTransacao);
             _recebimento.Registrar(transacaoEmDinheiro);
+            var transacaoEmCartaDeDebito = new TransacaoFinanceira(FormaDePagamento.CartaoDeDebito, _valorDaTransacao);
 
             _recebimento.Registrar(transacaoEmCartaDeDebito);
 

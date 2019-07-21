@@ -1,4 +1,5 @@
 ﻿using Nucleo.Compartilhado.Comum.Dominio;
+using System;
 
 namespace CheckOut.Dominio.Recebimentos
 {
@@ -17,7 +18,7 @@ namespace CheckOut.Dominio.Recebimentos
 
         public void Conferir(Ticket ticket)
         {
-            if(ticket.Permanencia.Saida != null)
+            if(ticket.Permanencia.Saida != DateTime.MinValue)
                 Ticket = ticket;
         }
 
@@ -25,7 +26,7 @@ namespace CheckOut.Dominio.Recebimentos
         {
             if(Ticket != null)
             {
-                if(Ticket.Permanencia.Saida != null)
+                if(Ticket.Permanencia.Saida != DateTime.MinValue)
                     TotalAPagar = regraDeCobranca.Calcular(Ticket.Permanencia);
             }
         }

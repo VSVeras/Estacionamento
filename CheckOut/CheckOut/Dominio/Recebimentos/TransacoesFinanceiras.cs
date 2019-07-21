@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace CheckOut.Dominio.Recebimentos
@@ -21,7 +20,7 @@ namespace CheckOut.Dominio.Recebimentos
 
         public decimal Total()
         {
-            return _trasacoesFinanceira.ToList().Sum(campo => campo.ValorRecebido);
+            return _trasacoesFinanceira.Sum(campo => campo.ValorRecebido);
         }
     }
 }
