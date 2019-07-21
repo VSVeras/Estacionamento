@@ -13,7 +13,7 @@ namespace Nucleo.Compartilhado.Comum.Infraestrutura.Persistencia
     public class SessionNHibernate
     {
         // O banco de dados tem que ser criado na unha "Como diz o ditado popular".
-        // Refatorar assim que possível, a string de conexão não pode ficar fixa da forma que está.
+        // TODO Refatorar assim que possível, a string de conexão não pode ficar fixa da forma que está.
         public static ISessionFactory Criar()
         {
             ISessionFactory sessionFactory = Fluently.Configure()

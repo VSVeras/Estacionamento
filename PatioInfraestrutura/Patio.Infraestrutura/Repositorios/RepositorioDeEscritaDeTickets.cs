@@ -10,29 +10,22 @@ namespace Patio.Infraestrutura.Repositorios
         {
             if (ticket.Valido())
             {
-                try
+                using (ISession sessao = SessionNHibernate.Criar().OpenSession())
                 {
-                    using (ISession sessao = SessionNHibernate.Criar().OpenSession())
+                    using (ITransaction trasacao = sessao.BeginTransaction())
                     {
-                        using (ITransaction trasacao = sessao.BeginTransaction())
+                        try
                         {
-                            try
-                            {
-                                sessao.SaveOrUpdate(ticket);
-                                sessao.Flush();
-                                trasacao.Commit();
-                            }
-                            catch
-                            {
-                                trasacao.Rollback();
-                                throw;
-                            }
+                            sessao.SaveOrUpdate(ticket);
+                            sessao.Flush();
+                            trasacao.Commit();
+                        }
+                        catch
+                        {
+                            trasacao.Rollback();
+                            throw;
                         }
                     }
-                }
-                catch
-                {
-                    throw;
                 }
             }
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Nucleo.Compartilhado.Comum.Dominio
 {
-    // Próximo passo identificar os agregados e entidades, lembrar deste:
+    // Próximo passo identificar os agregados e as entidades, lembrar deste:
 
     // Some objects are not defined primarily by their attributes. 
     // They represent a thread of identity that runs through time and often across distinct representations.

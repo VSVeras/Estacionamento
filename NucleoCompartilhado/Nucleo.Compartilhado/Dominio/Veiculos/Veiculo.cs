@@ -11,7 +11,7 @@ namespace Nucleo.Compartilhado.Dominio.Veiculos
         public Veiculo(Placa placa)
         {
             if (placa == null)
-                QuebraDeEspeficacao.Adicionar(new RegraDeNegocio("A placa do veículo não foi informado."));
+                QuebraDeEspeficacao.Adicionar(new RegraDeNegocio("A placa do veículo não foi informada."));
             else
             {
                 if (placa.Valido())
