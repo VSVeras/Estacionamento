@@ -1,13 +1,13 @@
 ﻿using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas;
 using Nucleo.Compartilhado.Dominio;
 using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
-using Patio.Dominio.Atendentes;
 using Patio.Dominio.Condutores;
+using Patio.Dominio.RegistroDeEntradas;
 using Xunit;
 
-namespace Estacionamento.TestesDeUnidades.Patio.Dominio.Atendentes
+namespace Estacionamento.TestesDeUnidades.Patio.Dominio.RegistroDeEntradas
 {
-    public class AtendenteTestes
+    public class RegistroDeEntradaTestes
     {
         [Fact]
         public void Deve_registrar_a_entrada_de_um_veiculo()
@@ -18,7 +18,7 @@ namespace Estacionamento.TestesDeUnidades.Patio.Dominio.Atendentes
             IProvedorDoTempo provedorDoTempo = new ProvedorDataHoraSistema();
 
             //act
-            var ticket = Atendente.Registra.Entrada(provedorDoTempo, servicoDeEstacionamento, placaPadrao);
+            var ticket = RegistroDeEntrada.Criar(provedorDoTempo, servicoDeEstacionamento, placaPadrao);
 
             //assert
             var veiculoEsperado = new FabricaDeVeiculo().ComAPlacaPadrao().Criar();
