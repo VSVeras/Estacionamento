@@ -18,7 +18,7 @@ namespace Estacionamento.TestesDeUnidades.Patio.Dominio.Atendentes
             IProvedorDoTempo provedorDoTempo = new ProvedorDataHoraSistema();
 
             //act
-            var ticket = Atendente.Registrar.Entrada(provedorDoTempo, servicoDeEstacionamento, placaPadrao);
+            var ticket = Atendente.Registra.Entrada(provedorDoTempo, servicoDeEstacionamento, placaPadrao);
 
             //assert
             var veiculoEsperado = new FabricaDeVeiculo().ComAPlacaPadrao().Criar();
