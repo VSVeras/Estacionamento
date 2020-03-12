@@ -15,8 +15,8 @@ namespace Nucleo.Compartilhado.Dominio.Veiculos
                 QuebraDeEspeficacao.Adicionar(new RegraDeNegocio("A identificação da placa não foi informada."));
             else
             {
-                var regraValidaDoConteudo = new Regex("[a-zA-Z]{3}[0-9]{4}");
-                if (regraValidaDoConteudo.IsMatch(valor))
+                var regraValidarConteudo = new Regex("[a-zA-Z]{3}[0-9]{4}");
+                if (regraValidarConteudo.IsMatch(valor))
                     QuebraDeEspeficacao.Adicionar(new RegraDeNegocio("A placa deve conter letras e números"));
             }
 

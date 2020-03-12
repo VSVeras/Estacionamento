@@ -10,7 +10,7 @@ using Xunit;
 
 namespace Estacionamento.TestesDeIntegracao.Patio.Aplicacao.Condutores
 {
-    public class ServicoDeCondutorTestes : IDisposable
+    public sealed class ServicoDeCondutorTestes : IDisposable
     {
         private readonly IRepositorioDeLeituraTickets _repositorioDeLeituraTickets;
 
