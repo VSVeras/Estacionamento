@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes de Integração", "T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Estacionamento.TestesDeIntegracao", "TestesDeIntegracao\Estacionamento.TestesDeIntegracao\Estacionamento.TestesDeIntegracao.csproj", "{0913C7A2-DEB7-4DB7-81AC-4754BD00DC7A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "contextos", "contextos", "{B274B7E8-9379-41B5-92B1-63DFED6DECD1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contextos", "Contextos", "{B274B7E8-9379-41B5-92B1-63DFED6DECD1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Checkout", "Checkout", "{E3B28A39-62CB-478F-BCBC-376D99840A0D}"
 EndProject
