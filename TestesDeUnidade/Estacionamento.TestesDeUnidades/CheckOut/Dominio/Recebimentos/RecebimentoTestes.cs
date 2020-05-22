@@ -1,12 +1,12 @@
-﻿using System;
-using Xunit;
-using CheckOut.Dominio.Recebimentos;
-using Nucleo.Compartilhado.Dominio;
-using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
+﻿using CheckOut.Dominio.Recebimentos;
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Fabricas;
 using Estacionamento.TestesDeUnidades.NucleoCompartilhado.Infraestrutura.SistemaOperacional;
+using Nucleo.Compartilhado.Dominio;
 using Nucleo.Compartilhado.Dominio.Condutores;
 using Nucleo.Compartilhado.Dominio.Veiculos;
+using Nucleo.Compartilhado.Infraestrutura.SistemaOperacional;
+using System;
+using Xunit;
 
 namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
 {
@@ -41,8 +41,6 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             _recebimento.Conferir(_ticket);
 
             //assert
-            Assert.Equal(_bilhete.TicketId, _recebimento.Ticket.Id);
-            Assert.Equal(_bilhete.Veiculo, _recebimento.Ticket.Veiculo);
             Assert.Equal(_bilhete.DataHoraDeEntrada, _recebimento.Ticket.Permanencia.Entrada);
             Assert.Equal(dataHoraDaSaida.DataHora, _recebimento.Ticket.Permanencia.Saida);
         }
@@ -59,8 +57,8 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
 
             decimal valorDaDiaria = 22.00m;
             double permanenciaEmHoras = 24;
-            double totalDaPermanencia = ArredondarParaBaixo((double) valorDaDiaria / permanenciaEmHoras, 1);
-            decimal valorEsperadoDoTotalAPagar = valorDaDiaria * (decimal) totalDaPermanencia;
+            double totalDaPermanencia = ArredondarParaBaixo((double)valorDaDiaria / permanenciaEmHoras, 1);
+            decimal valorEsperadoDoTotalAPagar = valorDaDiaria * (decimal)totalDaPermanencia;
             Assert.Equal(valorEsperadoDoTotalAPagar, _recebimento.TotalAPagar);
         }
 
@@ -76,7 +74,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
 
             decimal valorDaHora = 12.00m;
             double totalDaPermanenciaEmMinutos = 45;
-            decimal valorEsperadoDoTotalAPagar = valorDaHora * (decimal) (totalDaPermanenciaEmMinutos / _minutosEmUmaHora);
+            decimal valorEsperadoDoTotalAPagar = valorDaHora * (decimal)(totalDaPermanenciaEmMinutos / _minutosEmUmaHora);
             Assert.Equal(valorEsperadoDoTotalAPagar, _recebimento.TotalAPagar);
         }
 
@@ -92,7 +90,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
 
             decimal valorDaHora = 12.00m;
             double totalDaPermanenciaEmMinutos = 60;
-            decimal valorEsperadoDoTotalAPagar = valorDaHora * (decimal) (totalDaPermanenciaEmMinutos / _minutosEmUmaHora);
+            decimal valorEsperadoDoTotalAPagar = valorDaHora * (decimal)(totalDaPermanenciaEmMinutos / _minutosEmUmaHora);
             Assert.Equal(valorEsperadoDoTotalAPagar, _recebimento.TotalAPagar);
         }
 
@@ -106,7 +104,7 @@ namespace Estacionamento.TestesDeUnidades.CheckOut.Dominio.Recebimentos
             _recebimento.CobrancaPorPermanencia(cobrancaPorHora);
             var transacaoEmDinheiro = new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao);
 
-           _recebimento.Registrar(transacaoEmDinheiro);
+            _recebimento.Registrar(transacaoEmDinheiro);
 
             var transacoesFinanceirasEsperada = new TransacoesFinanceiras();
             transacoesFinanceirasEsperada.Adicionar(new TransacaoFinanceira(FormaDePagamento.Dinheiro, _valorDaTransacao));
