@@ -2,7 +2,7 @@
 using Nucleo.Compartilhado.Comum.Infraestrutura.Persistencia;
 using Nucleo.Compartilhado.Dominio.Condutores;
 using Nucleo.Compartilhado.Dominio.Veiculos;
-using Patio.Aplicacao.Condutores;
+using Patio.Dominio.Condutores;
 using Patio.Dominio.Tickets;
 using Patio.Infraestrutura.Repositorios;
 using System;

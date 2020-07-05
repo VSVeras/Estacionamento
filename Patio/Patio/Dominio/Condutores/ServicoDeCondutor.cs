@@ -1,7 +1,7 @@
 ﻿using Nucleo.Compartilhado.Dominio.Condutores;
 using Patio.Dominio.Tickets;
 
-namespace Patio.Aplicacao.Condutores
+namespace Patio.Dominio.Condutores
 {
     // Serviço destinado para uso do contexto de checkout
     public sealed class ServicoDeCondutor : IServicoDeCondutor
